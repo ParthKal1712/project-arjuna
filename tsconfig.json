@@ -1,16 +1,66 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
+
+    // This setting defines the version of JS that we want the compiler to output.
+    "target": "ESNext", // Latest version of JavaScript
+    
+    // This setting defines the module system that we want to use.
+    "module": "NodeNext", //NodeNext is the latest module system for Node.js, which supports both CommonJS and ES modules.
+
+    // This setting enables strict type checking options, which can help catch potential errors and improve code quality.
     "strict": true,
+
+    // During conversion to JS, this setting will remove type imports and exports.
     "verbatimModuleSyntax": true,
+
+    // This setting will skip type checking of declaration files, which can help speed up the compilation process.
     "skipLibCheck": true,
+
+    // This setting ensures only the node types are included in the global scope by default.
     "types": [
       "node"
     ],
+
+    // This setting will help us render React using our backend, if we ever want to do so.
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "outDir": "./dist"
+
+    // This setting allows us to set the output directory of the compiled JS files.
+    "outDir": "./dist",
+
+    // This setting allows us to set the root directory of our source TS files.
+    "rootDir": "./src",
+
+    // Custom Options
+
+    // This will allow us to import modules using absolute paths with an alias.
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // This will help us catch unused variables and parameters, which can help keep our code clean and maintainable.
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // This will help us catch unused labels, which can help prevent confusion and improve code readability.
+    "allowUnusedLabels": false,
+
+    // This will disallow imports with side effects.
+    "noUncheckedSideEffectImports": true,
+
+    // THis will disallow switch cases that ignore the fallthrough behaviour.
+    "noFallthroughCasesInSwitch": true,
+    
+    // This will disallow unreachable code, which can help prevent confusion and improve code readability.
+    "allowUnreachableCode": false,
+
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true
+    
+
   },
+
+  // We exclude the node_modules directory because we do not need to mess with dependency code.
   "exclude": ["node_modules"]
 }
